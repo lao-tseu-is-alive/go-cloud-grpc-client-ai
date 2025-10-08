@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/lao-tseu-is-alive/go-cloud-grpc-client-ai/inference" // Change to your module name
+	pb "github.com/lao-tseu-is-alive/go-cloud-grpc-client-ai/pkg/inference" // Change to your module name
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
