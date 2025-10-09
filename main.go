@@ -22,10 +22,10 @@ func main() {
 	c := pb.NewInferencerClient(conn)
 
 	// Contact the server and print out its response.
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
-	prompt := "Hello AI world"
+	prompt := "Hello, my name is Carlos ! What's yours ?"
 	log.Printf("Sending prompt to Python service: %s", prompt)
 
 	r, err := c.GenerateText(ctx, &pb.GenerateRequest{Prompt: prompt})
@@ -33,5 +33,5 @@ func main() {
 		log.Fatalf("could not generate text: %v", err)
 	}
 
-	log.Printf("Received from Python: %s", r.GetGeneratedText())
+	log.Printf("Received from Python gRPC server:\n%s\n", r.GetGeneratedText())
 }
